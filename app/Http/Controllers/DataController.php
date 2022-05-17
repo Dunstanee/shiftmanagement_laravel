@@ -83,4 +83,133 @@ class DataController extends Controller
             return array('status'=>400, 'message'=>'Please fill in the signing form and retry');
            }
     }
+    public function NewEmployee(Request $request)
+    {
+        if(self::Checkloggins($request) == 1)
+       {
+            $validation = Validator::make($request->all(),[
+                'first_name'=>'required',
+                'last_name' => 'required',
+                'national_id' => 'required',
+                'city' => 'required',
+                'contact' => 'required',
+                'dob' => 'required',
+                'gender' => 'required',
+            ]);
+            if($validation->passes()){
+               $count =  DB::table('employees')->where('national_id', $request->national_id)->count();
+               if ($count > 0) {
+                    return array('status'=>400, 'message'=>'Duplicate entry National ID/ Passport');
+               } else {
+                   $query = DB::table('employees')->insert([
+                    'first_name'=>$request->first_name,
+                    'last_name' => $request->last_name,
+                    'national_id' => $request->national_id,
+                    'city' => $request->city,
+                    'contact' => $request->contact,
+                    'dob' => $request->dob,  
+                    'email' => $request->email,  
+                    'gender' => $request->gender,  
+                    'company_id' => session('company')->id,  
+                    'password' => Hash::make($request->national_id),  
+                    ]);
+                    if($query)
+                    {
+                        return array('status'=>200, 'message'=>'New employee registration is successful');
+                    }
+                    else{
+                        return array('status'=>400, 'message'=>'New employee registration failed');
+                    }
+                }
+            }
+            else{
+                return array('status'=>400, 'message'=>'Please fill in the employee form complete form and retry');
+               }
+       }
+       return view('/');
+    }
+    public function UpdateEmployee(Request $request, $id)
+    {
+        if(self::Checkloggins($request) == 1)
+       {
+            $validation = Validator::make($request->all(),[
+                'first_name'=>'required',
+                'last_name' => 'required',
+                'national_id' => 'required',
+                'city' => 'required',
+                'contact' => 'required',
+                'dob' => 'required',
+                'gender' => 'required',
+            ]);
+            if($validation->passes()){
+               $count =  DB::table('employees')
+                                    ->where('national_id', $request->national_id)
+                                    ->whereNotIn('id',[$id])
+                                    ->count();
+               if ($count > 0) {
+                    return array('status'=>400, 'message'=>'Duplicate entry National ID/ Passport');
+               } else {
+                   $query = DB::table('employees')
+                                    ->where('id',$id)
+                                    ->update($request->all());
+                    if($query)
+                    {
+                        return array('status'=>200, 'message'=>'Employee Updated successfully');
+                    }
+                    else{
+                        return array('status'=>400, 'message'=>'Employee Update failed');
+                    }
+                }
+            }
+            else{
+                return array('status'=>400, 'message'=>'Check you data well and try again');
+               }
+       }
+       return view('/');
+    }
+    public function SendSms(Request $request)
+    {
+        if(self::Checkloggins($request) == 1)
+       {
+            $validation = Validator::make($request->all(),[
+                'message'=>'required',
+                'employee_id' => 'required',
+            ]);
+            if($validation->passes())
+            {
+                $sent_to =  "";
+                for ($i=0; $i <= count($request->employee_id)-1; $i++) { 
+                    $sent_to .= $request->employee_id[$i]  ;
+                }
+                $queryid = DB::table('messages')->insert([
+                    'staff_id'=>session('staff')->id,
+                    'sent_to'=>json_encode($request->employee_id),
+                    'message'=>$request->message,
+                ]);
+                if ($queryid) {
+                        return array('status'=>200, 'message'=>'Message sent successfully');
+                      
+                } else {
+                    return array('status'=>400, 'message'=>'Message sent failed');
+                }
+                
+                return $queryid;
+            }
+            else{
+                return array('status'=>400, 'message'=>'Check you data well and try again');
+               }
+        
+       }
+       return view('/');
+    }
+    public function Checkloggins($request)
+    {
+        if($request->session()->has('staff') && $request->session()->has('company'))
+        {
+            return 1;
+
+        }else{
+            return 0;
+        }
+    }
 }

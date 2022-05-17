@@ -9,7 +9,7 @@
         </div>
         <ul class="side-menu metismenu">
             <li>
-                <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
+                <a class="active" href="{{url('Dashboard')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li>
@@ -19,13 +19,13 @@
                     <span class="nav-label">Employees</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="colors.html">New Employee</a>
+                        <a href="{{url('New-Employee')}}">New Employee</a>
                     </li>
                     <li>
-                        <a href="typography.html">Manage Employee</a>
+                        <a href="{{url('Employee')}}">Manage Employee</a>
                     </li>
                     <li>
-                        <a href="panels.html">Employee Message</a>
+                        <a href="{{url('Sms')}}">Employee Message</a>
                     </li>
                     <li>
                         <a href="buttons.html">Make Groups</a>

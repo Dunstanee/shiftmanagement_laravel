@@ -21,14 +21,15 @@ $(document).ready(function(){
         keyboardNavigation: false,
         forceParse: false,
         autoclose: true,
-        format: "dd/mm/yyyy"
+        format: "yyyy-mm-dd"
     });
     $('#date_3 .input-group.date').datepicker({
         startView: 2,
         todayBtn: "linked",
         keyboardNavigation: false,
         forceParse: false,
-        autoclose: true
+        autoclose: true,
+        format: "yyyy-mm-dd"
     });
     $('#date_4 .input-group.date').datepicker({
         minViewMode: 1,

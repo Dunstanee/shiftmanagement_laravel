@@ -6,7 +6,7 @@
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-success color-white widget-stat">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong">0</h2>
+                    <h2 class="m-b-5 font-strong">2</h2>
                     <div class="m-b-5">No of Shift</div><i class="ti-harddrives widget-stat-icon"></i>
                     
                 </div>
@@ -15,7 +15,7 @@
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-info color-white widget-stat">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong">0</h2>
+                    <h2 class="m-b-5 font-strong">{{$ResourceNo}}</h2>
                     <div class="m-b-5">No of Admin </div><i class="ti-medall-alt widget-stat-icon"></i>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-warning color-white widget-stat">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong">0</h2>
+                    <h2 class="m-b-5 font-strong">{{$AverageEmpl}}</h2>
                     <div class="m-b-5">Average per Shift</div><i class="ti-view-list-alt widget-stat-icon"></i>
                 </div>
             </div>
@@ -31,7 +31,7 @@
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-danger color-white widget-stat">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong">0</h2>
+                    <h2 class="m-b-5 font-strong">{{$EmployeeNo}}</h2>
                     <div class="m-b-5">No. of Employees</div><i class="ti-id-badge widget-stat-icon"></i>
                 </div>
             </div>
