@@ -32,3 +32,5 @@ Route::get('GetComposeSms', [TableController::class, 'GetComposeSms']);
 Route::get('GetMessages', [TableController::class, 'GetMessages']);
 Route::post('NewEmployee', [DataController::class, 'NewEmployee']);
 Route::post('UpdateEmployee/{id}', [DataController::class, 'UpdateEmployee']);
+
+Route::get('New-Staff', [PageController::class, 'NewStaff']);

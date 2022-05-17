@@ -76,13 +76,13 @@
                     <span class="nav-label">Staffs</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="table_basic.html">New Staff</a>
+                        <a href="New-Staff">New Staff</a>
                     </li>
                     <li>
-                        <a href="datatables.html">Manage Staff</a>
+                        <a href="Staff">Manage Staff</a>
                     </li>
                     <li>
-                        <a href="datatables.html">Staff Report</a>
+                        <a href="Staff-Report">Staff Report</a>
                     </li>
                 </ul>
             </li>

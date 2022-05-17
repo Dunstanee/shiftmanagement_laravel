@@ -82,6 +82,16 @@ class PageController extends Controller
        }
        return redirect('/');
     }
+    public function NewStaff(Request $request)
+    {
+        if(self::Checkloggins($request) == 1)
+       {
+           
+           $gender  = Gender::all();
+        return view('New_Staff',['Gender'=>$gender]);  
+       }
+       return redirect('/');
+    }
     public function Checkloggins($request)
     {
         if($request->session()->has('staff') && $request->session()->has('company'))
