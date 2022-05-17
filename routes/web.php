@@ -34,3 +34,10 @@ Route::post('NewEmployee', [DataController::class, 'NewEmployee']);
 Route::post('UpdateEmployee/{id}', [DataController::class, 'UpdateEmployee']);
 
 Route::get('New-Staff', [PageController::class, 'NewStaff']);
+Route::post('Staff', [DataController::class, 'Staff']);
+Route::get('Staff', [PageController::class, 'Staff']);
+Route::get('GetStaffs', [TableController::class, 'GetStaffs']);
+
+
+
+Route::get('Signout', [PageController::class, 'Signout']);

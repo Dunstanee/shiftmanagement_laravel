@@ -47,7 +47,7 @@ class DataController extends Controller
                     {
                         $destinationPath = public_path().'/logos' ;
                         $image->move($destinationPath,$new_name);
-                        return array('status'=> 200, 'message'=>'Company registerd successfully');
+                        return array('status'=> 200, 'message'=>'Company registered successfully');
                     }else{
                         return array('status'=>400, 'message'=>'Company registration failed');
                     }
@@ -60,6 +60,44 @@ class DataController extends Controller
         else{
             return array('status'=>400, 'message'=>'Please fill in the required fields. Company Name and Logo is a must.');
            }        
+    }
+    public function Staff(Request $request)
+    {
+        $validation = Validator::make($request->all(),[
+            'first_name'=>'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+        ]);
+        if($validation->passes())
+        {
+           $no = Humanresource::all()->where('email',$request->email )->count();
+           if ($no > 0) {
+                return array('status'=> 400, 'message'=>'Email already exists');
+           } else {
+              
+            $query = DB::table('humanresources')->insertGetId([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'contact'=>$request->contact,
+            'company_id'=>session('company')->id,
+            'role'=>1,
+            'password'=>Hash::make('staff123'),
+            ]);
+            if($query) 
+            {
+                return array('status'=> 200, 'message'=>'New Staff registered successfully');
+            }else{
+                return array('status'=>400, 'message'=>'New Staff registration failed');
+            }
+            
+           }
+        }
+        else
+        {
+            return array('status'=>400, 'message'=>'Please fill in the required fields. ');
+        }        
     }
     public function Login(Request $request)
     {

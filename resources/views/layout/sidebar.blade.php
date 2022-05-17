@@ -88,7 +88,7 @@
             </li>
             
             <li>
-                <a href="calendar.html"><i class="sidebar-item-icon fa fa-lock"></i>
+                <a href="Signout"><i class="sidebar-item-icon fa fa-lock"></i>
                     <span class="nav-label">Logout</span>
                 </a>
             </li>

@@ -34,6 +34,29 @@ class PageController extends Controller
         }
         return redirect('/');
     }
+    public function Signout(Request $request)
+    {
+        
+        if(self::Checkloggins($request) == 1)
+        {
+            $request->session()->forget('staff');  
+            $request->session()->forget('company');  
+            return redirect('/');
+        }
+        return redirect('/');
+    }
+    public function Staff(Request $request)
+    {
+        
+        if(self::Checkloggins($request) == 1)
+        {
+            $data = Humanresource::all();
+            $count = Humanresource::all()->count();
+            
+            return view('Staff',['Staffs'=>$data,'StaffNo'=>$count]);  
+        }
+        return redirect('/');
+    }
     public function login()
     {
         $data = Company::all()->first();

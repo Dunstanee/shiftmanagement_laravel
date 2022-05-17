@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Humanresource;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,5 +42,12 @@ class TableController extends Controller
             
         }
         return view('DataTables.Messages',['Messages'=> $sms]); 
+    }
+    public function GetStaffs()
+    {
+        
+        $data = Humanresource::all();
+        $count = Humanresource::all()->count();
+        return view('DataTables.StaffTable',['Staffs'=> $data]); 
     }
 }

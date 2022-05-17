@@ -8,7 +8,7 @@
     <button class="close" data-dismiss="alert" aria-label="Close">×</button>
     <span id="message"></span> 
 </div>
-<form id="NewEmployeeForm" class="form-horizontal" >
+<form id="NewStaffForm" method="POST" class="form-horizontal" >
 <div class="row">
     <div class="col-md-3">
     </div>
@@ -41,6 +41,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">contact</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" id="ex-phone" name="contact" required>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-sm-8 ml-sm-auto">
                         <button id="btndeposit" class="btn btn-info" type="submit">Submit</button>
                     </div>
@@ -60,7 +66,7 @@
             $('#messagebox').attr("style", "display:none");
             $('#depositshow').attr("style", "display:none");
       
-           $('#NewEmployeeForm').on('submit',function(event){
+           $('#NewStaffForm').on('submit',function(event){
              event.preventDefault();
              $("#btndeposit").attr("disabled", true);
              $('#messagebox').removeClass('alert alert-danger');
@@ -76,20 +82,21 @@
                     });
                         var form_data = $(this).serialize();
                       $.ajax({
-                        url: "/NewEmployee",
+                        url: "/Staff",
                         method: "POST",
                         dataType : 'json',
                         data: form_data,
                         success:function(response)
                         {
+                            console.log(response);
                             if(response.status == 200)
                             {
                               $('#messagebox').removeClass('alert alert-warning'); 
                                 $('#messagebox').addClass('alert alert-success'); 
                                 $('#messagebox').attr("style", "display:block");
-                                $('#message').text(response.message+'. Thank you. default password is national Id, security UUID : national Id.');  
+                                $('#message').text(response.message+'. Thank you. default password is staff123, security email : individual staff email.');  
                                setTimeout(() => {
-                                   $('#NewEmployeeForm')[0].reset();
+                                   $('#NewStaffForm')[0].reset();
                                    
                                }, 100);
       
