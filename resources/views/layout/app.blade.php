@@ -91,6 +91,7 @@
     <script src="{{asset('assets/vendors/summernote/dist/summernote.min.js')}}" type="text/javascript"></script>
     
     <script src="{{asset('assets/vendors/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
+    <script src="{{asset('exportjs.js')}}"></script>
   @yield('scripts')
     <script src="{{asset('assets/js/app.min.js')}}" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->

@@ -31,6 +31,7 @@ Route::get('GetEmployeesSms', [TableController::class, 'GetEmployeesSms']);
 Route::get('GetComposeSms', [TableController::class, 'GetComposeSms']);
 Route::get('GetMessages', [TableController::class, 'GetMessages']);
 Route::post('NewEmployee', [DataController::class, 'NewEmployee']);
+Route::get('Employee-Report', [PageController::class, 'EmployeeReport']);
 Route::post('UpdateEmployee/{id}', [DataController::class, 'UpdateEmployee']);
 
 Route::get('New-Staff', [PageController::class, 'NewStaff']);
@@ -41,3 +42,5 @@ Route::get('GetStaffs', [TableController::class, 'GetStaffs']);
 
 
 Route::get('Signout', [PageController::class, 'Signout']);
+Route::put('Staff/{id}', [DataController::class, 'StaffDelete']);
+Route::get('Staff-Report', [PageController::class, 'StaffReport']);

@@ -238,7 +238,23 @@ class DataController extends Controller
                }
         
        }
-       return view('/');
+       return redirect('/');
+    }
+    public function StaffDelete(Request $request,$id)
+    {
+        if(self::Checkloggins($request) == 1)
+       {
+           $query =  Humanresource::destroy($id);
+            if($query)
+            {
+                return array('status'=>200, 'message'=>'Staff deleted successfully');
+            }
+            else{
+                return array('status'=>400, 'message'=>'Check you data well and try again');
+               }
+        
+       }
+       return redirect('/');
     }
     public function Checkloggins($request)
     {

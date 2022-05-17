@@ -25,16 +25,13 @@
                         <a href="{{url('Employee')}}">Manage Employee</a>
                     </li>
                     <li>
-                        <a href="{{url('Sms')}}">Employee Message</a>
-                    </li>
-                    <li>
                         <a href="buttons.html">Make Groups</a>
                     </li>
                     <li>
                         <a href="tabs.html">Manage Groups</a>
                     </li>
                     <li>
-                        <a href="alerts_tooltips.html">Employee Report</a>
+                        <a href="Employee-Report">Employee Report</a>
                     </li>
                 </ul>
             </li>
@@ -64,10 +61,7 @@
                     <span class="nav-label">Messages</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="table_basic.html">Single Message</a>
-                    </li>
-                    <li>
-                        <a href="datatables.html">Bulk Messages</a>
+                        <a href="{{url('Sms')}}">Message</a>
                     </li>
                 </ul>
             </li>
