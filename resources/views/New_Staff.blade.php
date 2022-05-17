@@ -25,19 +25,19 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">First  Name</label>
                     <div class="col-sm-8">
-                        <input class="form-control" type="text" name="first_name">
+                        <input class="form-control" type="text" name="first_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Last Name</label>
                     <div class="col-sm-8">
-                        <input class="form-control" type="text" name="last_name">
+                        <input class="form-control" type="text" name="last_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Email</label>
                     <div class="col-sm-8">
-                        <input class="form-control" type="email" name="email">
+                        <input class="form-control" type="email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group row">
